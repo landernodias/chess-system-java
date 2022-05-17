@@ -36,9 +36,14 @@ public class Board {
 	public Piece piece(int row, int column) {
 		return pieces[row][column];
 	}
-	//retorna a posição da peça 
+	//retorna a peça pela posição 
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
+	}
+	
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;//pegar a matriz na posição dada e atribuir a ela uma peça que foi informado
+		piece.position = position;// fala que a posição da peça não é mais nula elá rece a position informada.
 	}
 
 }
