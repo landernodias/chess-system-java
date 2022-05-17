@@ -2,6 +2,8 @@
 
 package chess;
 
+import javax.swing.border.Border;
+
 import boardgame.Board;
 import boardgame.Position;
 import chess.pieces.King;
@@ -27,10 +29,17 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		return mat;//retorna a matriz de peça da partida de xadrez
 	}
 	
+	private void placeNewPiece(char column, int row, ChessPiece piece) {// passa a posição da peça e a peça
+		//chama o tabuleiro
+		// add a peça com o placePiece
+		// instancia uma posição do xadrez
+		// passando uma peça nas posiçoes do xadrez a1 a h8
+		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+	}
 	private void initialSetup() {
-		board.placePiece(new Rook(board, Color.WHITE), new Position(2,1));
-		board.placePiece(new King(board, Color.BLACK), new Position(0,4));
-		board.placePiece(new King(board, Color.WHITE), new Position(7,4));
-		board.placePiece(new King(board, Color.WHITE), new Position(2,1));
+//		board.placePiece(new Rook(board, Color.WHITE), new Position(2,1));
+		placeNewPiece('b', 6, new Rook(board, Color.WHITE));
+		placeNewPiece('e' ,8 , new King(board, Color.BLACK));
+		placeNewPiece('e', 1, new King(board, Color.WHITE));
 	}
 }
