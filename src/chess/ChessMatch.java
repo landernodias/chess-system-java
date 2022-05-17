@@ -47,6 +47,10 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		if(!board.thereIsAPiece(position)) {// se não existir uma peça nessa posição
 			throw new ChessException("There is no piece on source position");
 		}
+		//verifica se existe movimentos pociveis para a peça
+		if (!board.piece(position).isThereAnyPossibleMove()) {//se não tiver nenhum movimento possivel
+			throw new ChessException("There is no possible moves for the chosen piece");//não existe movimentos possivel para a peça escolhida
+		}
 	}
 
 	private void placeNewPiece(char column, int row, ChessPiece piece) {// passa a posição da peça e a peça
