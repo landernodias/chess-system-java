@@ -2,6 +2,9 @@
 
 package chess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
@@ -15,7 +18,10 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 
 	private Board board; // Na partida de chadrez precisa de um tabuleiro
 
-	public ChessMatch() {
+	private List<Piece> pieceOnTheBoard = new ArrayList<>();// aceita todo tipo de peça
+	private List<Piece> capturedPicies = new ArrayList<>();
+	
+	public ChessMatch() {//PARTIDA DE XADREZ//
 		board = new Board(8, 8);// define o tamanho do tabuleiro de xadrez
 		turn = 1; // turno no inicio da partida vale um
 		currentPlayer = Color.WHITE; // quem começa são as peça branca
@@ -63,6 +69,10 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		Piece p = board.removePiece(source);// remove a peça da posição de origem
 		Piece capturedPiece = board.removePiece(target); // remove a peça da posição de destino
 		board.placePiece(p, target); // coloca a peça de origem no lugar da peça de destino
+		if (capturedPiece != null) { //verifica se uma peça foi capturada no jogo 
+			pieceOnTheBoard.remove(capturedPiece);// remove a peça da lista de peça no tabueiro de xadrez
+			capturedPicies.add(capturedPiece);
+		}
 		return capturedPiece;
 		
 	}
@@ -99,6 +109,8 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		// instancia uma posição do xadrez
 		// passando uma peça nas posiçoes do xadrez a1 a h8
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+		//sempre que for instanciar uma nova peça no jogo de xadrez coloca na lista de peça do tabuleiro
+		pieceOnTheBoard.add(piece);
 	}
 
 	private void initialSetup() {
