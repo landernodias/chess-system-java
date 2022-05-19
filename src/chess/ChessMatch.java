@@ -28,6 +28,13 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		return mat;// retorna a matriz de peça da partida de xadrez
 	}
 	
+	// Essa função permite que seja impressa as posições possivel apartir de uma posição de origem
+	public boolean[][] possibleMoves(ChessPosition sourcePossition){
+		Position position = sourcePossition.toPosition();// converte um aposição de xadrez para um aposição de matrix normal
+		validateSourcePosition(position);// valida a possição já depois que o usuario entra com a possisão
+		return board.piece(position).possibleMoves();
+	}
+	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
