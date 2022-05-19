@@ -9,14 +9,27 @@ import chess.pieces.King;
 import chess.pieces.Rook;
 
 public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadrez pe a classe chessMatch
+	
+	private Integer turn;
+	private Color currentPlayer;
 
 	private Board board; // Na partida de chadrez precisa de um tabuleiro
 
 	public ChessMatch() {
 		board = new Board(8, 8);// define o tamanho do tabuleiro de xadrez
+		turn = 1; // turno no inicio da partida vale um
+		currentPlayer = Color.WHITE; // quem começa são as peça branca
 		initialSetup(); // Coloca as peças no tabuleiro
 	}
 
+	public int getTurn() {
+		return this.turn;
+	}
+	
+	public Color getCurrentPlayer() {
+		return this.currentPlayer;
+	}
+	
 	// retorna uma matriz de peças de xadrez correspondente a essa partida
 	public ChessPiece[][] getPieces() {
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
@@ -35,12 +48,14 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		return board.piece(position).possibleMoves();
 	}
 	
+	// executa uma jogada
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
 		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
+		nextTurn();//muda de turno
 		return (ChessPiece) capturedPiece;
 	}
 	
@@ -55,6 +70,10 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		if(!board.thereIsAPiece(position)) {// se não existir uma peça nessa posição
 			throw new ChessException("There is no piece on source position");
 		}
+		// verificar se quem pode jogar é o jogador valido
+		if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()) {// pega a peça na possição faz um downcasting e verifica a cor delase a peça do jogador atual for diferente da peça pega é uma peça do adversario assim não posso movela
+			throw new ChessException("The chosen piece is not yours");// a peça escolhida não é sua
+		}
 		//verifica se existe movimentos pociveis para a peça
 		if (!board.piece(position).isThereAnyPossibleMove()) {//se não tiver nenhum movimento possivel
 			throw new ChessException("There is no possible moves for the chosen piece");//não existe movimentos possivel para a peça escolhida
@@ -67,6 +86,11 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		if (!board.piece(source).possibleMove(target)) {//se para peça de origem a posição de destino não é um movimento possivel:
 			throw new ChessException("The chosen piece can't move to target position");// a peça escolhida não pode se mover para a posição de destino
 		}
+	}
+	
+	private void nextTurn() { //executa quando ocorre uma jogada
+		turn++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;// troca de turno e mudança de jogador
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {// passa a posição da peça e a peça
