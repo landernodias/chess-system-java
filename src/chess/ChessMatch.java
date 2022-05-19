@@ -32,6 +32,7 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
+		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece) capturedPiece;
 	}
@@ -53,6 +54,14 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		}
 	}
 
+	// valida a posição de destino
+	private void validateTargetPosition(Position source, Position target) {
+		//verifica se a peça que está no tabuleiro na posição de origem pode mover para a posição de destino
+		if (!board.piece(source).possibleMove(target)) {//se para peça de origem a posição de destino não é um movimento possivel:
+			throw new ChessException("The chosen piece can't move to target position");// a peça escolhida não pode se mover para a posição de destino
+		}
+	}
+	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {// passa a posição da peça e a peça
 		// chama o tabuleiro
 		// add a peça com o placePiece
