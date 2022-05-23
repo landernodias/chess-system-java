@@ -23,4 +23,8 @@ public abstract class ChessPiece extends Piece{
 		//verificar se é um a peça adversaria
 		return p != null && p.getColor() != color;//verifica se a peça é diferente de nulo e se ela é diferente da peça da cor que eu estou utilizando
 	}
+	
+	public ChessPosition getChessPosition() {
+		return ChessPosition.fromPosition(position);
+	}
 }
