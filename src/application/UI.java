@@ -37,12 +37,12 @@ public class UI {
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
 	// # Limpa o console
-	//https://stackoverflow.coom/questions/2979383/java-clear-the-console
+	// https://stackoverflow.coom/questions/2979383/java-clear-the-console
 	public static void clearScreen() {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
-	
+
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
 			String s = sc.nextLine();// le um string exemplo A1, A2, A3
@@ -50,7 +50,7 @@ public class UI {
 			int row = Integer.parseInt(s.substring(1));// recorta a posição do numero: pega 1 2 3
 			return new ChessPosition(column, row);
 		} catch (RuntimeException e) {
-				throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
+			throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
 		}
 	}
 
@@ -59,13 +59,21 @@ public class UI {
 		System.out.println();
 		printCapturePieces(captured);
 		System.out.println();
-		System.out.println("Turn: " + chessMatch.getTurn());//imprime o turno
-		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer()); //esperando jogador x jogar
-		if(chessMatch.getCheck()) {
-			System.out.println("CHECK!");
+		System.out.println("Turn: " + chessMatch.getTurn());// imprime o turno
+		// testa se não está em checkmath
+		if (!chessMatch.getCkeckMate()) {
+			System.out.println("Waiting player: " + chessMatch.getCurrentPlayer()); // esperando jogador x jogar
+			if (chessMatch.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		} else {
+			// mostra o vencedor
+			System.out.println("CHECKMATE!");
+			System.out.println("Winner: " + chessMatch.getCurrentPlayer());// mostra quem ganhou
 		}
-		
+
 	}
+
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print(8 - i + " ");
@@ -76,7 +84,7 @@ public class UI {
 		}
 		System.out.println("  a b c d e f g h");
 	}
-	
+
 	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print(8 - i + " ");
@@ -89,7 +97,7 @@ public class UI {
 	}
 
 	private static void printPiece(ChessPiece piece, boolean background) {
-		
+
 		if (background) {
 			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
@@ -104,11 +112,14 @@ public class UI {
 		}
 		System.out.print(" ");
 	}
-	
+
 	private static void printCapturePieces(List<ChessPiece> captured) {// lista de peça capturadas do jogo todo
-		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList()); //operador lambida: fultra da lista todos da cor branca: operação basica para filtrar
-		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());// filtra todos que tem cor black
-		
+		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE)
+				.collect(Collectors.toList()); // operador lambida: fultra da lista todos da cor branca: operação basica
+												// para filtrar
+		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK)
+				.collect(Collectors.toList());// filtra todos que tem cor black
+
 		System.out.println("Captured picies:");
 		System.out.print("White: ");
 		System.out.print(ANSI_WHITE);
@@ -119,6 +130,5 @@ public class UI {
 		System.out.print(Arrays.toString(black.toArray()));
 		System.out.println(ANSI_RESET);
 	}
-	
 
 }
