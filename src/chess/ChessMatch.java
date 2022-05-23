@@ -91,7 +91,8 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 	}
 	
 	private Piece makeMove(Position source, Position target) {
-		Piece p = board.removePiece(source);// remove a peça da posição de origem
+		ChessPiece p = (ChessPiece)board.removePiece(source);// remove a peça da posição de origem
+		p.increseMoveCount();
 		Piece capturedPiece = board.removePiece(target); // remove a peça da posição de destino
 		board.placePiece(p, target); // coloca a peça de origem no lugar da peça de destino
 		if (capturedPiece != null) { //verifica se uma peça foi capturada no jogo 
@@ -103,7 +104,8 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 	}
 	
 	private void undoMove(Position source, Position target, Piece capturedPiece ) {
-		Piece p = board.removePiece(target);// cria um apeça que recebe e tira a peça que movi para o destino
+		ChessPiece p = (ChessPiece)board.removePiece(target);// cria um apeça que recebe e tira a peça que movi para o destino
+		p.decreaseMoveCount();
 		board.placePiece(p, source);// devolve a peça do destino na origem
 		
 		if(capturedPiece != null) {// verifica se uma peça foi capturada
