@@ -103,6 +103,27 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 			pieceOnTheBoard.remove(capturedPiece);// remove a peça da lista de peça no tabueiro de xadrez
 			capturedPieces.add(capturedPiece);// lista de peça capturada
 		}
+		
+		// #Specialmove castling kingside rook : movimento de roque lado menor
+		if(p instanceof King && target.getColumn() == source.getColumn() + 2) { //verifica se p é um rei e se a coluna de destino é igual a coluna de origem +2 (direita) é um roque pequeno
+			//movimentando a torre para sua posição no roque
+			Position sourceT = new Position(source.getRow(), source.getColumn() + 3);// posição da torre: mesma linha do rei a três colunas do rei
+			Position targetT = new Position(source.getRow(), source.getColumn() + 1);// posição de destino da torre
+			ChessPiece rook = (ChessPiece)board.removePiece(sourceT);//retira a torre da posição que ela está
+			board.placePiece(rook, targetT);// move para a posição de destino
+			rook.increseMoveCount();// incrementa a quantidade de movimento da torre
+		}
+		
+		// #Specialmove castling Queenside rook : movimento de roque lado da rainha
+		if(p instanceof King && target.getColumn() == source.getColumn() - 2) { //verifica se p é um rei e se a coluna de destino é igual a coluna de origem -2 (esquerda) é um roque pequeno
+			//movimentando a torre para sua posição no roque
+			Position sourceT = new Position(source.getRow(), source.getColumn() - 4);// posição da torre: mesma linha do rei a três colunas do rei
+			Position targetT = new Position(source.getRow(), source.getColumn() - 1);// posição de destino da torre
+			ChessPiece rook = (ChessPiece)board.removePiece(sourceT);//retira a torre da posição que ela está
+			board.placePiece(rook, targetT);// move para a posição de destino
+			rook.increseMoveCount();// incrementa a quantidade de movimento da torre
+		}
+		
 		return capturedPiece;
 		
 	}
@@ -118,6 +139,27 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 			pieceOnTheBoard.add(capturedPiece);//adciona novamente a peça capturada na lista de peça do tabuleiro
 			
 		}
+		//DESFAZENDO MOVIMENTOS ROQUE 
+		// #Specialmove castling kingside rook : movimento de roque lado menor
+				if(p instanceof King && target.getColumn() == source.getColumn() + 2) { //verifica se p é um rei e se a coluna de destino é igual a coluna de origem +2 (direita) é um roque pequeno
+					//movimentando a torre para sua posição no roque
+					Position sourceT = new Position(source.getRow(), source.getColumn() + 3);// posição da torre: mesma linha do rei a três colunas do rei
+					Position targetT = new Position(source.getRow(), source.getColumn() + 1);// posição de destino da torre
+					ChessPiece rook = (ChessPiece)board.removePiece(target);//retira a torre da posição que ela está
+					board.placePiece(rook, sourceT);// move para a posição de origem novamente
+					rook.decreaseMoveCount();// decrementa a quantidade de movimento da torre
+				}
+				
+				// #Specialmove castling Queenside rook : movimento de roque lado da rainha
+				if(p instanceof King && target.getColumn() == source.getColumn() - 2) { //verifica se p é um rei e se a coluna de destino é igual a coluna de origem -2 (esquerda) é um roque pequeno
+					//movimentando a torre para sua posição no roque
+					Position sourceT = new Position(source.getRow(), source.getColumn() - 4);// posição da torre: mesma linha do rei a três colunas do rei
+					Position targetT = new Position(source.getRow(), source.getColumn() - 1);// posição de destino da torre
+					ChessPiece rook = (ChessPiece)board.removePiece(target);//retira a torre da posição que ela está
+					board.placePiece(rook, sourceT);// move para a posição de origem novamente
+					rook.decreaseMoveCount();// decrementa a quantidade de movimento da torre
+				}
+				
 		
 	}
 	private void validateSourcePosition(Position position) {
@@ -219,7 +261,7 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		placeNewPiece('b', 1, new Knight(board, Color.WHITE));
 		placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
 		placeNewPiece('d', 1, new Queen(board, Color.WHITE));
-		placeNewPiece('e', 1, new King(board, Color.WHITE));
+		placeNewPiece('e', 1, new King(board, Color.WHITE, this));// this: passa a auto referencia da partida
 		placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
 		placeNewPiece('g', 1, new Knight(board, Color.WHITE));
 		placeNewPiece('h', 1, new Rook(board, Color.WHITE));
@@ -236,7 +278,7 @@ public class ChessMatch { // quem deve saber a dimensão de um tabuleiro de xadr
 		placeNewPiece('b', 8, new Knight(board, Color.BLACK));
 		placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
 		placeNewPiece('d', 8, new Queen(board, Color.BLACK));
-		placeNewPiece('e', 8, new King(board, Color.BLACK));
+		placeNewPiece('e', 8, new King(board, Color.BLACK, this));// this: passa a auto referencia da partida 
 		placeNewPiece('f', 8, new Bishop(board, Color.BLACK));
 		placeNewPiece('g', 8, new Knight(board, Color.BLACK));
 		placeNewPiece('h', 8, new Rook(board, Color.BLACK));
