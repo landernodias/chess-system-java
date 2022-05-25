@@ -55,7 +55,7 @@ public class Pawn extends ChessPiece {
 				}
 				// teste para duas linhas a frente
 				p.setValues(position.getRow() + 2, position.getColumn());// movimenta duas casa para frente/acima
-				Position p2 = new Position(position.getRow() - 1, position.getColumn());// pega a primeira posição afrente do peão
+				Position p2 = new Position(position.getRow() + 1, position.getColumn());// pega a primeira posição afrente do peão
 				if (getBorad().positionExists(p) && !getBorad().thereIsAPiece(p) && getBorad().positionExists(p2)
 						&& !getBorad().thereIsAPiece(p2) && getMoveCount() == 0) {// verifica se o pião pode se mover para a possição e se não existeça na primeira posição
 					mat[p.getRow()][p.getColumn()] = true;// pode ir para a posição uma linha para frente
