@@ -2,13 +2,17 @@ package chess.pieces;
 
 import boardgame.Board;
 import boardgame.Position;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.Color;
 
 public class Pawn extends ChessPiece {
 
-	public Pawn(Board borad, Color color) {
+	private ChessMatch chessMatch;// depedencia para a partida
+	
+	public Pawn(Board borad, Color color, ChessMatch chessMatch) {
 		super(borad, color);
+		this.chessMatch = chessMatch;
 
 	}
 	@Override
@@ -45,6 +49,24 @@ public class Pawn extends ChessPiece {
 			if (getBorad().positionExists(p) && isThereOpponentPiece(p)) {// verifica se o movimento é possivel e se tem uma peça adversaria no local
 				mat[p.getRow()][p.getColumn()] = true;// pode ir para a posição uma linha para frente
 			}
+			
+			// #Specialmove en passant white
+			if (position.getRow() == 3) {
+				Position left = new Position(position.getRow(), position.getColumn() -1);
+				//:verifica se existe uma posição left, verifica se na posição right existe uma peça do oponente, verifica se a peça na posição right do tabuleiro e esta vuneravel a tomar um em passant
+				if (getBorad().positionExists(left) && isThereOpponentPiece(left) && getBorad().piece(left) == chessMatch.getEmPassantVulnerable()) {
+					// se sim posso captura a peça na posição right
+					mat[left.getRow() -1][left.getColumn()] = true;// posição possivel para o pião mover
+					
+				}
+				Position right = new Position(position.getRow(), position.getColumn() + 1);
+				//:verifica se existe uma posição right, verifica se na posição right existe uma peça do oponente, verifica se a peça na posição rignt do tabuleiro e esta vuneravel a tomar um em passant
+				if (getBorad().positionExists(right) && isThereOpponentPiece(right) && getBorad().piece(right) == chessMatch.getEmPassantVulnerable()) {
+					// se sim posso captura a peça na posição left
+					mat[right.getRow() -1][right.getColumn()] = true;// posição possivel para o pião mover
+					
+				}
+			}
 		} else {
 			// MOVIMENTO PEÇAS PRETA
 			// regra geral peão preto
@@ -69,6 +91,23 @@ public class Pawn extends ChessPiece {
 				p.setValues(position.getRow() + 1, position.getColumn() + 1);// movimenta uma casa para diagonal direita
 				if (getBorad().positionExists(p) && isThereOpponentPiece(p)) {// verifica se o movimento é possivel e se tem uma peça adversaria no local
 					mat[p.getRow()][p.getColumn()] = true;// pode ir para a posição uma linha para frente
+				}
+				// #Specialmove en passant black
+				if (position.getRow() == 4) {
+					Position left = new Position(position.getRow(), position.getColumn() -1);
+					//:verifica se existe uma posição left, verifica se na posição right existe uma peça do oponente, verifica se a peça na posição right do tabuleiro e esta vuneravel a tomar um em passant
+					if (getBorad().positionExists(left) && isThereOpponentPiece(left) && getBorad().piece(left) == chessMatch.getEmPassantVulnerable()) {
+						// se sim posso captura a peça na posição right
+						mat[left.getRow() + 1][left.getColumn()] = true;// posição possivel para o pião mover
+						
+					}
+					Position right = new Position(position.getRow(), position.getColumn() + 1);
+					//:verifica se existe uma posição right, verifica se na posição right existe uma peça do oponente, verifica se a peça na posição rignt do tabuleiro e esta vuneravel a tomar um em passant
+					if (getBorad().positionExists(right) && isThereOpponentPiece(right) && getBorad().piece(right) == chessMatch.getEmPassantVulnerable()) {
+						// se sim posso captura a peça na posição left
+						mat[right.getRow() + 1][right.getColumn()] = true;// posição possivel para o pião mover
+						
+					}
 				}
 			}
 		}
