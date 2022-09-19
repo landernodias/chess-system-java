@@ -1,3 +1,6 @@
+```diff
+- ESSA APLICAÇÂO FOI DESENVOLVIDA EM UM SISTEMA OPERACIONAL E TODOS TESTES E TELAS FORAM EXECUTADAS NO MESMO.
+```
 ![GitHub Repo stars](https://img.shields.io/ubuntu/v/ubuntu-wallpapers/focal?style=plastic)
 
 
@@ -41,3 +44,10 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
   ![Bishop](https://user-images.githubusercontent.com/33238924/191082781-cfc42b95-c4f3-4a23-9252-f8c66237773f.png)
   
 </div>
+
+# Guia de Jogabilidade
+...main
+...
+
+# Jogadas Especiais
+
