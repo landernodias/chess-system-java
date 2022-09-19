@@ -1,7 +1,7 @@
 ```diff
 - ESSA APLICAÇÂO FOI DESENVOLVIDA EM UM SISTEMA OPERACIONAL E TODOS TESTES E TELAS FORAM EXECUTADAS NO MESMO.
 ```
-![GitHub Repo stars](https://img.shields.io/ubuntu/v/ubuntu-wallpapers/focal?style=plastic)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) [![Generic badge](https://img.shields.io/badge/Ubuntu-22.04 LTS-orange.svg)](https://shields.io/)
 
 
 # Chess-System-Java
@@ -12,7 +12,8 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
 
 ### Linguagem
 
-  ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+  ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)  [![Generic badge](https://img.shields.io/badge/Java-11.0.16-<COLOR>.svg)](https://www.oracle.com/java/technologies/javase/11-0-16-relnotes.html)
+
   
   
 ### IDEs 
