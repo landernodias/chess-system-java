@@ -1,4 +1,4 @@
-# chess-system-java
+<h1 align="center">Chess-System-Java </h1>
 
-## Tecnologias Utilizadas
+<h3> Tecnologias Utilizadas <h3>
   - Java 11
