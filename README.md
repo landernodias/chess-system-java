@@ -128,3 +128,4 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
 
   <img src="https://user-images.githubusercontent.com/33238924/191129380-ccbc0e16-52bb-4087-9ecc-5486c1ac3600.png" width="300" heigth="400">
   
+Desenvolvido 🛠️ por [Nelcione Dias](https://gist.github.com/landernodias)
