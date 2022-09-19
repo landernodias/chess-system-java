@@ -3,5 +3,9 @@
 <h3> Tecnologias Utilizadas <h3>
   
   <ul>
-    <li>Java 11<li>  
+    <li>IDEs
+      <ul>
+         <li>Java 11</li>  
+      </ul>
+    </li>  
   <ul>
