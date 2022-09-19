@@ -12,7 +12,8 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
 
 ### Linguagem
 
-  ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+  ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+  
   
 ### IDEs 
 
