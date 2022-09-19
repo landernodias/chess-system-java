@@ -88,6 +88,43 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
 
 # Guia de Jogabilidade
 
+## Movimentação das peças
 
+ Como pode ser visto acima cada uma das peça tem sua forma de se movimentar.
+ 
+ - **Source:** Qual peça o jogador White/Branco ou Black/Preto deseja movimenta.
+ - **Target:** Qual o destino dessa peça que será movida.
+ 
+ Basicamente a logica de movimentação se baseia em coordenadas de tabuleiro em que as colunas vão de **A** até **H** e as linhas **1** até **8**
+  
+ O jogo fica alternando a vez de cada jogador e mostrando em que turno está no momento e quais peças foram capturadas.
+ 
 # Jogadas Especiais
 
+## Movimento roque (rock) do lado da Rainha
+- Possibilidade de Rock para o Lado da rainha
+
+  <img src="https://user-images.githubusercontent.com/33238924/191125467-5f28b781-ade3-4d1b-a7cc-e11158d33f59.png" width="300" height="400"> 
+
+- Rock Executado
+
+  <img src="https://user-images.githubusercontent.com/33238924/191125743-968c9c73-95c8-44c9-9bdd-1174e658e6da.png" width="300" height="400">
+  
+## Movimento roque (rock) do lado do Rei
+- Possibilidade de Rock para o lado do Rei
+  
+  <img src="https://user-images.githubusercontent.com/33238924/191127307-eda9cb6d-e869-4048-9173-1be68752ce4d.png" width="300" height="400">
+  
+- Rock Executado
+  
+  <img src="https://user-images.githubusercontent.com/33238924/191127771-dcf8aa2d-474e-4826-bebf-5843ad44eb6a.png" width="300" height="400">
+
+## Captura do peão en passant 
+- Possibilidade de En Passant
+
+  <img src="https://user-images.githubusercontent.com/33238924/191129110-15d86962-0d04-47d5-b919-6c05ba0ec5e9.png" width="300" heigth="400">
+  
+- En Passant Executado
+
+  <img src="https://user-images.githubusercontent.com/33238924/191129380-ccbc0e16-52bb-4087-9ecc-5486c1ac3600.png" width="300" heigth="400">
+  
