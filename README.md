@@ -1,4 +1,4 @@
 # chess-system-java
 
-# Tecnologias Utilizadas
+## Tecnologias Utilizadas
   - Java 11
