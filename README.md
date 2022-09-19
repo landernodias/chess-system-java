@@ -1,7 +1,7 @@
 ```diff
 - ESSA APLICAÇÂO FOI DESENVOLVIDA EM UM SISTEMA OPERACIONAL E TODOS TESTES E TELAS FORAM EXECUTADAS NO MESMO.
 ```
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) [![Generic badge](https://img.shields.io/badge/Ubuntu-22.04LTS-orange.svg)](https://releases.ubuntu.com/22.04/)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://releases.ubuntu.com) [![Generic badge](https://img.shields.io/badge/Ubuntu-22.04LTS-orange.svg)](https://releases.ubuntu.com/22.04/)
 
 
 # Chess-System-Java
