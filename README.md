@@ -22,7 +22,7 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
   <img src="https://user-images.githubusercontent.com/33238924/190934737-5a840449-7ccd-4686-9e30-e8282dc3c4be.jpg" width="380px" heigth="400">
   </div>
 
- # Peças de Xadrex "Movimentações
+ # Peças de Xadrex "Movimentações"
   
  ### P : Pawn/Peão
   
@@ -30,6 +30,14 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
   
  ### R : Rook/Torre
   
-  ![Rook](https://user-images.githubusercontent.com/33238924/191080538-e5b0e038-44b2-46f8-be4e-96ade11404af.png)
+  ![Rook](https://user-images.githubusercontent.com/33238924/191080538-e5b0e038-44b2-46f8-be4e-96ade11404af.png).
+  
+ ### K : Knight/Cavalo
 
+  ![Knight](https://user-images.githubusercontent.com/33238924/191081093-fd4c0b67-c1aa-4976-b06c-d2568e3729b6.png)
+  
+ ### B : Bishop/Bispo
+  
+  ![Bishop](https://user-images.githubusercontent.com/33238924/191082781-cfc42b95-c4f3-4a23-9252-f8c66237773f.png)
+  
 </div>
