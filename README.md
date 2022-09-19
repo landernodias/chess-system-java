@@ -35,15 +35,23 @@ Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar
   
  ### R : Rook/Torre
   
-  ![Rook](https://user-images.githubusercontent.com/33238924/191080538-e5b0e038-44b2-46f8-be4e-96ade11404af.png).
+  ![Rook](https://user-images.githubusercontent.com/33238924/191080538-e5b0e038-44b2-46f8-be4e-96ade11404af.png)
   
- ### K : Knight/Cavalo
+ ### N : Knight/Cavalo
 
   ![Knight](https://user-images.githubusercontent.com/33238924/191081093-fd4c0b67-c1aa-4976-b06c-d2568e3729b6.png)
   
  ### B : Bishop/Bispo
   
   ![Bishop](https://user-images.githubusercontent.com/33238924/191082781-cfc42b95-c4f3-4a23-9252-f8c66237773f.png)
+  
+ ### Q : Queen/Reinha
+  
+  ![Queen](https://user-images.githubusercontent.com/33238924/191096305-eea19c99-3f4f-4ff0-8644-f0bb7494b2ff.png)
+
+ ### K : King/Rei
+  
+  ![King](https://user-images.githubusercontent.com/33238924/191097020-c8943d11-795b-4f36-92aa-c314c4fc99d9.png)
   
 </div>
 
