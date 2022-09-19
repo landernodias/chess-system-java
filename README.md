@@ -1,4 +1,5 @@
 <h1 align="center">Chess-System-Java </h1>
+<p style="font-size: 10px">Este projeto foi contruido durante um treinamento JAVA. Ele consistem em aplicar todos conceitos de Java Como Herança, Polimorfismos, Encapsulamento entre outros conceitos fundamentais da linguagem.</p>
 
 <h3> Tecnologias Utilizadas <h3>
   
@@ -16,7 +17,11 @@
       </ul>
     </li>
   <ul>
-<div> 
+<div class="container"> 
   <h2>Jogo de Xadrez</h2>
-  ![chessboard](https://user-images.githubusercontent.com/33238924/190934737-5a840449-7ccd-4686-9e30-e8282dc3c4be.jpg)
+
+  <div align="center">
+  <img src="https://user-images.githubusercontent.com/33238924/190934737-5a840449-7ccd-4686-9e30-e8282dc3c4be.jpg" width="380px" heigth="400">
+  </div>
+  
 </div>
